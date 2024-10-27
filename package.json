@@ -13,6 +13,7 @@
     "devDependencies": {
         "@eslint/js": "catalog:",
         "@stylistic/eslint-plugin": "catalog:",
+        "@types/node": "catalog:",
         "@types/react": "catalog:",
         "@types/react-dom": "catalog:",
         "@vitejs/plugin-react": "catalog:",
@@ -25,7 +26,8 @@
         "simple-git-hooks": "catalog:",
         "typescript": "catalog:",
         "typescript-eslint": "catalog:",
-        "vite": "catalog:"
+        "vite": "catalog:",
+        "vite-plugin-dts": "catalog:"
     },
     "simple-git-hooks": {
         "pre-commit": "npx lint-staged --verbose"

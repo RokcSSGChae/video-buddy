@@ -2,6 +2,22 @@
     "name": "@video-buddy/modal",
     "version": "0.1.0",
     "type": "module",
+    "files": [
+        "dist/*"
+    ],
+    "main": "./dist/modal.es.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/modal.es.js",
+            "require": "./dist/modal.es.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./style.css": {
+            "import": "./dist/css/style.css",
+            "require": "./dist/css/style.css"
+        }
+    },
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
