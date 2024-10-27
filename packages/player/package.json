@@ -1,0 +1,14 @@
+{
+    "name": "@video-buddy/player",
+    "version": "0.1.0",
+    "files": [
+        "dist/*"
+    ],
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "lint": "eslint .",
+        "preview": "vite preview"
+    }
+}
