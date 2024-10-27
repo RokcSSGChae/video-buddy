@@ -1,4 +1,5 @@
 name: 새로운 기능 제안 ✨
+description: Use this template to report new features. 
 labels: [enhancement]
 body:
     - type: textarea

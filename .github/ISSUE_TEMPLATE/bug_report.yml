@@ -1,4 +1,5 @@
 name: 버그 제보 🐛
+description: Use this template to report bugs.
 labels: [bug]
 body:
     - type: textarea
