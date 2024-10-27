@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="module">
+    import { Player } from './dist/player.es.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const rootElement = document.getElementById("root");
+
+      if (rootElement) {
+        const player = new Player("#root").src('public/flower.webm');
+      } else {
+        console.error("Root element not found!");
+      }
+    });
+  </script>
+</html>
