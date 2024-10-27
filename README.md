@@ -1,2 +1,3 @@
 # video-buddy
-WIP
+
+TODO

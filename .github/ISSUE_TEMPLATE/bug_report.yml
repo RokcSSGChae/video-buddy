@@ -1,0 +1,9 @@
+name: 버그 제보 🐛
+labels: [bug]
+body:
+    - type: textarea
+      id: description
+      attributes:
+          description: "버그에 대한 상세한 설명을 기입 부탁드립니다."
+      validations:
+          required: true

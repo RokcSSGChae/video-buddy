@@ -1,0 +1,7 @@
+packages:
+    # all packages in direct subdirs of packages/
+    - "packages/**"
+catalog:
+    pnpm: ^9.12.2
+    simple-git-hooks: ^2.11.1
+    typescript: ^5.6.3

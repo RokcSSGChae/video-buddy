@@ -1,0 +1,55 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+catalogs:
+  default:
+    pnpm:
+      specifier: ^9.12.2
+      version: 9.12.2
+    simple-git-hooks:
+      specifier: ^2.11.1
+      version: 2.11.1
+    typescript:
+      specifier: ^5.6.3
+      version: 5.6.3
+
+importers:
+
+  .:
+    devDependencies:
+      pnpm:
+        specifier: 'catalog:'
+        version: 9.12.2
+      simple-git-hooks:
+        specifier: 'catalog:'
+        version: 2.11.1
+      typescript:
+        specifier: 'catalog:'
+        version: 5.6.3
+
+packages:
+
+  pnpm@9.12.2:
+    resolution: {integrity: sha512-InIbOhH4FmGuHsaM4ae4eUJaHKW5kcl1sHSsIgsYfOVscI/l22n0yWLJiUUu7nbIKHf07oD0dM69Ye4TRhtiKA==}
+    engines: {node: '>=18.12'}
+    hasBin: true
+
+  simple-git-hooks@2.11.1:
+    resolution: {integrity: sha512-tgqwPUMDcNDhuf1Xf6KTUsyeqGdgKMhzaH4PAZZuzguOgTl5uuyeYe/8mWgAr6IBxB5V06uqEf6Dy37gIWDtDg==}
+    hasBin: true
+
+  typescript@5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+snapshots:
+
+  pnpm@9.12.2: {}
+
+  simple-git-hooks@2.11.1: {}
+
+  typescript@5.6.3: {}

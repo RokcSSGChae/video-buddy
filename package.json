@@ -1,0 +1,25 @@
+{
+    "name": "@video-buddy/workspace",
+    "version": "0.1.0",
+    "description": "",
+    "engines": {
+        "node": ">=20"
+    },
+    "packageManager": "pnpm@9.12.2",
+    "scripts": {
+        "test": "echo \"Erro2r: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "pnpm": "catalog:",
+        "simple-git-hooks": "catalog:",
+        "typescript": "catalog:"
+    },
+    "simple-git-hooks": {
+        "pre-commit": "npx lint-staged --verborse"
+    },
+    "lint-staged": {
+        "!(dist/**/*)*.{js,ts}": [
+            "eslint --cache --fix"
+        ]
+    }
+}

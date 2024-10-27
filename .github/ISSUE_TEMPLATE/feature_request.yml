@@ -1,0 +1,9 @@
+name: 새로운 기능 제안 ✨
+labels: [enhancement]
+body:
+    - type: textarea
+      id: description
+      attributes:
+          description: "구현해야 하는 새로운 기능과 요구사항을 기입 부탁드립니다."
+      validations:
+          required: true
