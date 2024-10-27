@@ -2,6 +2,7 @@
     "name": "@video-buddy/workspace",
     "version": "0.1.0",
     "description": "",
+    "type": "module",
     "engines": {
         "node": ">=20"
     },
@@ -10,15 +11,29 @@
         "test": "echo \"Erro2r: no test specified\" && exit 1"
     },
     "devDependencies": {
+        "@eslint/js": "catalog:",
+        "@stylistic/eslint-plugin": "catalog:",
+        "@types/node": "catalog:",
+        "@types/react": "catalog:",
+        "@types/react-dom": "catalog:",
+        "@vitejs/plugin-react": "catalog:",
+        "eslint": "catalog:",
+        "eslint-plugin-react-hooks": "catalog:",
+        "eslint-plugin-react-refresh": "catalog:",
+        "globals": "catalog:",
+        "lint-staged": "catalog:",
         "pnpm": "catalog:",
         "simple-git-hooks": "catalog:",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "typescript-eslint": "catalog:",
+        "vite": "catalog:",
+        "vite-plugin-dts": "catalog:"
     },
     "simple-git-hooks": {
-        "pre-commit": "npx lint-staged --verborse"
+        "pre-commit": "npx lint-staged --verbose"
     },
     "lint-staged": {
-        "!(dist/**/*)*.{js,ts}": [
+        "*.{js,ts,tsx,md}": [
             "eslint --cache --fix"
         ]
     }
