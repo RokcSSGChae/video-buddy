@@ -5,17 +5,27 @@ import { noop, useFileDialog, useFileDropZone } from '@video-buddy/shared';
 import { Player } from '@video-buddy/player';
 
 interface ModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    onConfirm: (file: File | null) => void;
-    onCancel: () => void;
+    isOpen?: boolean;
+    onClose?: () => void;
+    onConfirm?: () => void;
+    onCancel?: () => void;
+    onFileChange?: (file: File | null) => void;
+    onThumbnailsChange: (thumbnails: Array<{ src: string, time: string }>) => void;
+    onDragEnter?: (event: DragEvent) => void;
+    onDragLeave?: (event: DragEvent) => void;
+    onDragover?: (event: DragEvent) => void;
 }
   
 const Modal = ({
     isOpen = false,
     onClose = noop,
     onConfirm = noop,
-    onCancel = noop
+    onCancel = noop,
+    onFileChange = noop,
+    onThumbnailsChange = noop,
+    onDragEnter = noop,
+    onDragLeave = noop,
+    onDragover = noop
 }: ModalProps) => {
     const { open: openFileDialog, onChange } = useFileDialog({ accept: 'video/*' });
     const { fileDropZoneRef } = useFileDropZone<HTMLDivElement>({
@@ -23,9 +33,11 @@ const Modal = ({
         onDrop: (droppedFiles) => {
             if (droppedFiles?.length) setSelectedFile(droppedFiles[0]);
         },
+        onEnter: onDragEnter,
+        onLeave: onDragLeave,
+        onOver: onDragover,
         multiple: false
     });
-
 
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [thumbnails, setThumbnails] = useState<Array<{ src: string, time: string }>>([]);
@@ -41,6 +53,9 @@ const Modal = ({
             setThumbnails([]);
         }
     }, [selectedFile]);
+
+    useEffect(() => onFileChange(selectedFile), [selectedFile, onFileChange]);
+    useEffect(() => onThumbnailsChange(thumbnails), [thumbnails, onThumbnailsChange]);
 
     onChange((selectedFiles) => {
         if (selectedFiles?.length) setSelectedFile(selectedFiles[0]);
@@ -122,8 +137,8 @@ const Modal = ({
                 <button type="button" className="cancel-button" onClick={onCancel || onClose}>
                     취소
                 </button>
-                <button type="button" className="confirm-button" onClick={() => onConfirm(selectedFile)}>
-                    확인
+                <button type="button" className="confirm-button" onClick={onConfirm}>
+                    확인 
                 </button>
             </div>
         </div>
