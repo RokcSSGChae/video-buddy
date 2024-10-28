@@ -10,9 +10,9 @@ interface UseFileDropZoneReturn<T extends HTMLElement> {
 interface UseFileDropZoneOptions {
     dataTypes?: Array<string> | ((types: Array<string>) => boolean);
     onDrop?: (files: Array<File> | null, event: DragEvent) => void;
-    onEnter?: (files: Array<File> | null, event: DragEvent) => void;
-    onLeave?: (files: Array<File> | null, event: DragEvent) => void;
-    onOver?: (files: Array<File> | null, event: DragEvent) => void;
+    onEnter?: (event: DragEvent) => void;
+    onLeave?: (event: DragEvent) => void;
+    onOver?: (event: DragEvent) => void;
     multiple?: boolean;
 }
 
@@ -72,15 +72,15 @@ export function useFileDropZone<T extends HTMLElement = HTMLElement>(
             case 'enter':
                 counter.current += 1;
                 setIsOverDropZone(true);
-                mergedOptions.onEnter?.(null, event);
+                mergedOptions.onEnter?.(event);
                 break;
             case 'over':
-                mergedOptions.onOver?.(null, event);
+                mergedOptions.onOver?.(event);
                 break;
             case 'leave':
                 counter.current -= 1;
                 if (counter.current === 0) setIsOverDropZone(false);
-                mergedOptions.onLeave?.(null, event);
+                mergedOptions.onLeave?.(event);
                 break;
             case 'drop':
                 counter.current = 0;
