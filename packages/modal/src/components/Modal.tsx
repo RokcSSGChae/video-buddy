@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import downloadIcon from '../assets/download-icon.svg';
 import './index.css';
-import { noop, useFileDialog } from '@video-buddy/shared';
+import { noop, useFileDialog, useFileDropZone } from '@video-buddy/shared';
 import { Player } from '@video-buddy/player';
 
 interface ModalProps {
@@ -18,6 +18,15 @@ const Modal = ({
     onCancel = noop
 }: ModalProps) => {
     const { open: openFileDialog, onChange } = useFileDialog({ accept: 'video/*' });
+    const { fileDropZoneRef } = useFileDropZone<HTMLDivElement>({
+        dataTypes: (types: Array<string>) => types.some(type => type.startsWith('video/')),
+        onDrop: (droppedFiles) => {
+            if (droppedFiles?.length) setSelectedFile(droppedFiles[0]);
+        },
+        multiple: false
+    });
+
+
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [thumbnails, setThumbnails] = useState<Array<{ src: string, time: string }>>([]);
     const playerRef = useRef<Player | null>(null);
@@ -92,6 +101,7 @@ const Modal = ({
                             <h2>동영상 업로드</h2>
                         </div>
                         <div
+                            ref={fileDropZoneRef}
                             className="upload-area"
                             role="button"
                             aria-label="동영상 파일을 선택하거나 드래그 앤 드롭하여 첨부하세요"
