@@ -6,12 +6,12 @@
         "dist/*"
     ],
     "main": "./dist/modal.es.js",
-    "types": "./dist/index.d.ts",
+    "types": "./dist/types/index.d.ts",
     "exports": {
         ".": {
             "import": "./dist/modal.es.js",
             "require": "./dist/modal.es.js",
-            "types": "./dist/index.d.ts"
+            "types": "./dist/types/index.d.ts"
         },
         "./style.css": {
             "import": "./dist/css/style.css",
@@ -27,5 +27,9 @@
     "dependencies": {
         "react": "catalog:",
         "react-dom": "catalog:"
+    },
+    "devDependencies": {
+        "@video-buddy/player": "workspace:",
+        "@video-buddy/shared": "workspace:"
     }
 }

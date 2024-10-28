@@ -5,14 +5,17 @@ import { resolve } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react(), dts({ include: ['components, index.ts'] })],
+    plugins: [
+        react(),
+        dts({ outDir: 'dist/types', insertTypesEntry: true })
+    ],
     esbuild: {
         drop: ['console', 'debugger']
     },
     publicDir: false,
     build: {
         lib: {
-            entry: resolve(__dirname, 'index.ts'),
+            entry: resolve(__dirname, './src/index.ts'),
             formats: ['es'],
             name: 'modal',
             fileName: (format) => `modal.${format}.js`

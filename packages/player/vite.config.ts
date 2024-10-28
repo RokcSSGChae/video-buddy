@@ -4,7 +4,9 @@ import { resolve } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [dts()],
+    plugins: [
+        dts({ outDir: 'dist/types', insertTypesEntry: true })
+    ],
     esbuild: {
         drop: ['console', 'debugger']
     },

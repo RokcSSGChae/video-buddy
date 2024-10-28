@@ -1,5 +1,4 @@
-import Modal from './components/Modal';
-import useModal from './components/useModal';
+import { useModal, Modal } from './components';
 
 function App() {
     const { isOpen, openModal, closeModal, onConfirm, onCancel } = useModal();
