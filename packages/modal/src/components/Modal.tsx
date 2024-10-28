@@ -10,7 +10,7 @@ interface ModalProps {
     onConfirm?: () => void;
     onCancel?: () => void;
     onFileChange?: (file: File | null) => void;
-    onThumbnailsChange: (thumbnails: Array<{ src: string, time: string }>) => void;
+    onThumbnailsChange?: (thumbnails: Array<{ src: string, time: string }>) => void;
     onDragEnter?: (event: DragEvent) => void;
     onDragLeave?: (event: DragEvent) => void;
     onDragover?: (event: DragEvent) => void;
