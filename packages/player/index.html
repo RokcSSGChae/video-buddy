@@ -4,21 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla</title>
+    <style>
+      #thumbnail-container {
+        position: relative;
+        display: inline-block;
+      }
+      #thumbnail-container img {
+        width: 200px; /* 이미지 크기 */
+      }
+      .timestamp {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 2px 5px;
+        font-size: 12px;
+        border-radius: 3px;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <button id="thumbnail-btn">Get Thumbnail</button>
+    <div id="thumbnail-container"></div>
   </body>
   <script type="module">
     import { Player } from './dist/player.es.js';
 
+    let player;
+
     document.addEventListener("DOMContentLoaded", () => {
       const rootElement = document.getElementById("root");
+      const thumbnailBtn = document.getElementById("thumbnail-btn");
+      const thumbnailContainer = document.getElementById("thumbnail-container");
 
       if (rootElement) {
-        const player = new Player("#root").src('public/flower.webm');
+        player = new Player("#root", { src: 'public/flower.webm' });
+        console.log('player, ', player);
       } else {
         console.error("Root element not found!");
       }
+
+      // 버튼 클릭 시 썸네일 가져오는 이벤트
+      thumbnailBtn.addEventListener("click", async () => {
+        try {
+          const result = await player.getThumbnail();
+          const currentTime = player.getCurrentTime(); // 현재 재생 시간 가져오기
+
+          console.log('result,', result);
+          console.log('currentTime,', currentTime);
+
+          // 썸네일을 이미지로 HTML에 표시
+          const img = document.createElement("img");
+          img.src = result; // result가 base64 URL이라고 가정
+          img.alt = "Thumbnail";
+
+          // 타임스탬프 요소 생성
+          const timestamp = document.createElement("div");
+          timestamp.className = "timestamp";
+          timestamp.textContent = `Time: ${currentTime.toFixed(2)}s`; // 소수점 2자리 표시
+
+          // 썸네일 컨테이너 비우고 이미지와 타임스탬프 추가
+          thumbnailContainer.innerHTML = "";
+          thumbnailContainer.appendChild(img);
+          thumbnailContainer.appendChild(timestamp);
+
+        } catch (err) {
+          console.error('Error fetching thumbnail:', err);
+        }
+      });
     });
   </script>
 </html>
