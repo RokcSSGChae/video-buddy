@@ -63,9 +63,10 @@ const Modal = ({
 
     const captureThumbnail = async () => {
         if (playerRef.current && thumbnails.length < 4) {
+            playerRef.current.pause();
+
             const thumbnailSrc = await playerRef.current.getThumbnail();
-            const videoElement = playerRef.current.getVideoElement();
-            const currentTime = videoElement.currentTime;
+            const currentTime = playerRef.current.getCurrentTime();
 
             const minutes = Math.floor(currentTime / 60);
             const seconds = Math.floor(currentTime % 60);
