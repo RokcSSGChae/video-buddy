@@ -5,57 +5,122 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+    max-width: 90vw;
+    max-height: 90vh;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     padding: 20px;
     font-family: Arial, sans-serif;
-  }
-  
-  /* Modal Header 스타일 */
-  .modal-header h2 {
+    overflow: hidden;
+}
+
+/* Video 요소 크기 조절 */
+#video-container video {
+    width: 100%;       /* 너비를 모달에 맞게 조정 */
+    height: auto;      /* 높이는 비율에 맞게 자동 조정 */
+    max-height: 250px; /* 최대 높이 제한 */
+    border-radius: 4px;
+}
+
+/* Modal Header 스타일 */
+.modal-header h2 {
     font-size: 18px;
     margin-bottom: 20px;
     color: #333;
-  }
-  
-  /* 드래그 앤 드롭 영역 스타일 */
-  .upload-area {
+}
+
+/* 드래그 앤 드롭 영역 스타일 */
+.upload-area {
     border: 2px dashed #ccc;
     padding: 40px 20px;
     border-radius: 8px;
     cursor: pointer;
     transition: border-color 0.3s;
-  }
-  
-  .upload-area:hover {
+}
+
+.upload-area:hover {
     border-color: #333;
-  }
-  
-  .upload-icon {
+}
+
+.upload-icon {
     font-size: 40px;
     margin-bottom: 10px;
-  }
+}
 
-  .upload-icon img {
+.upload-icon img {
     width: 40px;
     height: 40px;
-  }
-  
-  .upload-area p {
+}
+
+.upload-area p {
     font-size: 14px;
     color: #666;
-  }
-  
-  /* Modal Footer (버튼) 스타일 */
-  .modal-footer {
+}
+
+/* 썸네일 컨테이너 스타일 */
+.thumbnail-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 15px;
+}
+
+/* 모든 썸네일 구좌의 공통 스타일 */
+.thumbnail-slot {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.thumbnail-slot:hover {
+    border-color: #00796b;
+    background-color: #e0e0e0;
+}
+
+/* 썸네일 이미지 스타일 */
+.thumbnail-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 첫 번째 썸네일 슬롯의 + 버튼 */
+.thumbnail-slot.add-thumbnail {
+    color: #888;
+    font-size: 24px;
+}
+
+/* 썸네일 시간 표시 스타일 */
+.thumbnail-time {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 4px;
+    font-size: 10px;
+    border-radius: 2px;
+}
+
+/* Modal Footer (버튼) 스타일 */
+.modal-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-  }
-  
-  .cancel-button, .confirm-button {
+}
+
+.cancel-button, .confirm-button {
     width: 45%;
     padding: 10px 0;
     font-size: 14px;
@@ -63,23 +128,45 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .cancel-button {
+}
+
+.cancel-button {
     background-color: #f2f2f2;
     color: #333;
-  }
-  
-  .cancel-button:hover {
+}
+
+.cancel-button:hover {
     background-color: #e0e0e0;
-  }
-  
-  .confirm-button {
+}
+
+.confirm-button {
     background-color: #00796b;
     color: #fff;
-  }
-  
-  .confirm-button:hover {
+}
+
+.confirm-button:hover {
     background-color: #00695c;
-  }
-  
+}
+
+/* 삭제 버튼 스타일 */
+.delete-button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}

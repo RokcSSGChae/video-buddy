@@ -83,9 +83,6 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 18.3.1
-      '@video-buddy/shared':
-        specifier: 'workspace:'
-        version: link:packages/shared
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 4.3.3(vite@5.4.10(@types/node@22.8.1))
@@ -131,10 +128,24 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@video-buddy/player':
+        specifier: 'workspace:'
+        version: link:../player
+      '@video-buddy/shared':
+        specifier: 'workspace:'
+        version: link:../shared
 
   packages/player: {}
 
-  packages/shared: {}
+  packages/shared:
+    dependencies:
+      react:
+        specifier: 'catalog:'
+        version: 18.3.1
+      react-dom:
+        specifier: 'catalog:'
+        version: 18.3.1(react@18.3.1)
 
 packages:
 
