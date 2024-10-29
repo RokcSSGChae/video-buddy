@@ -115,7 +115,14 @@ function App() {
 
 ### 썸네일 추가 및 삭제 이벤트
 
-`onThumbnailsChange`를 사용하여 썸네일 변경 이벤트를 처리할 수 있습니다.
+`onThumbnailsChange`를 사용하여 썸네일 추가 및 삭제 이벤트를 처리할 수 있습니다.
+
+`onThumbnailsChange: (thumbnails: Array<{ src: string, time: string }>) => void`
+
+| Payload | Type     | 설명                                            |
+| ------- | -------- | ----------------------------------------------- |
+| `src`   | `string` | 썸네일 이미지의 **data URL**을 전달합니다.                 |
+| `time`  | `string` | 썸네일 이미지의 **재생 시간**을 전달합니다. (MM:SS) |
 
 ```javascript
 <Modal
@@ -125,9 +132,11 @@ function App() {
 />
 ```
 
-### 파일 변경 이벤트
+### 파일 추가 및 삭제 이벤트
 
-`onFileChange`를 사용하여 파일이 변경될 때의 처리를 할 수 있습니다.
+`onFileChange`를 사용하여 파일이 추가되거나 삭제되었을 때의 처리를 할 수 있습니다.
+
+`onFileChange: (file: File | null) => void`
 
 ```javascript
 <Modal
