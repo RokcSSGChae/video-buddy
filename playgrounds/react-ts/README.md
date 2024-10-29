@@ -8,7 +8,7 @@
 
 플레이그라운드 환경 종속성 설치 이전에 패키지 빌드 스크립트 실행이 필요합니다.
 
-패키지 별 빌드 산출물이 이미 있다면 건너뛰어도 됩니다.
+패키지 별 빌드 산출물이 로컬 환경에 이미 있다면 건너뛰어도 됩니다.
 
 ```bash
 cd video-buddy
@@ -28,6 +28,13 @@ npm install
 ```
 
 워크스페이스의 패키지는 Local File Path로 설치를 진행합니다.
+
+```json
+...
+"devDependencies": {
+    "@video-buddy/modal": "file:../../packages/modal",
+}
+```
 
 ## 📂 실행
 
