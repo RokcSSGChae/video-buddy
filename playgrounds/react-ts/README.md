@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+# 🌈 React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+로컬 테스트를 위한 `React` + `TypeScript` + `Vite` 환경입니다.
 
-Currently, two official plugins are available:
+## 🛠 설치 방법
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 패키지 빌드
 
-## Expanding the ESLint configuration
+플레이그라운드 환경 종속성 설치 이전에 패키지 빌드 스크립트 실행이 필요합니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+패키지 별 빌드 산출물이 이미 있다면 건너뛰어도 됩니다.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+cd video-buddy
+pnpm install
+pnpm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 플레이그라운드 종속성 설치
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+`npm`을 사용해 모든 종속성을 설치합니다.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+플레이그라운드 환경은 `pnpm workspace` 설정과 분리하여 `pnpm` 설치가 불가능합니다.
+
+```bash
+cd video-buddy/playgrounds/react-ts
+npm install
+```
+
+워크스페이스의 패키지는 Local File Path로 설치를 진행합니다.
+
+## 📂 실행
+
+`npm` 명령어로 개발 환경을 실행합니다.
+
+```bash
+npm run dev
 ```
