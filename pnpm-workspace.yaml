@@ -1,6 +1,8 @@
 packages:
     # all packages in direct subdirs of packages/
     - packages/**
+    # except playgrounds packages
+    - '!playgrounds'
 catalog:
     "@eslint/js": ^9.13.0
     "@stylistic/eslint-plugin": ^2.9.0
