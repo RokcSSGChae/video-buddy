@@ -12,22 +12,59 @@
     overflow: hidden;
 }
 
-/* Video 요소 크기 조절 */
-#video-container video {
-    width: 100%;       /* 너비를 모달에 맞게 조정 */
-    height: auto;      /* 높이는 비율에 맞게 자동 조정 */
-    max-height: 250px; /* 최대 높이 제한 */
+#vb-container video {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
     border-radius: 4px;
 }
 
-/* Modal Header 스타일 */
-.modal-header h2 {
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.modal-header-start, .modal-header-end {
+    display: flex;
+    align-items: flex-start;
+}
+
+.modal-header .modal-header-title {
     font-size: 18px;
+    font-weight: bold;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* 드래그 앤 드롭 영역 스타일 */
+.modal-header-end {
+    display: flex;
+    align-items: center;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.close-button img {
+    width: 20px;
+    height: 20px;
+    filter: grayscale(100%) brightness(0%);
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.close-button:hover img {
+    filter: grayscale(0%) brightness(50%);
+    transform: scale(1.1);
+}
+
 .upload-area {
     border: 2px dashed #ccc;
     padding: 40px 20px;
@@ -55,7 +92,6 @@
     color: #666;
 }
 
-/* 썸네일 컨테이너 스타일 */
 .thumbnail-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -63,7 +99,6 @@
     margin-top: 15px;
 }
 
-/* 모든 썸네일 구좌의 공통 스타일 */
 .thumbnail-slot {
     width: 100%;
     height: 70px;
@@ -84,20 +119,17 @@
     background-color: #e0e0e0;
 }
 
-/* 썸네일 이미지 스타일 */
 .thumbnail-slot img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* 첫 번째 썸네일 슬롯의 + 버튼 */
 .thumbnail-slot.add-thumbnail {
     color: #888;
     font-size: 24px;
 }
 
-/* 썸네일 시간 표시 스타일 */
 .thumbnail-time {
     position: absolute;
     bottom: 4px;
@@ -109,14 +141,14 @@
     border-radius: 2px;
 }
 
-/* Modal Footer (버튼) 스타일 */
 .modal-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.cancel-button, .confirm-button {
+.cancel-button,
+.confirm-button {
     width: 45%;
     padding: 10px 0;
     font-size: 14px;
@@ -144,7 +176,6 @@
     background-color: #00695c;
 }
 
-/* 삭제 버튼 스타일 */
 .delete-button {
     position: absolute;
     top: 4px;
@@ -165,4 +196,11 @@
 
 .delete-button:hover {
     background-color: rgba(255, 0, 0, 0.8);
+}
+
+.modal .error-message {
+    color: #ff4d4f;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
 }

@@ -45,7 +45,7 @@ import { BuddyModal } from "@video-buddy/modal";
     onThumbnailsChange={(thumbnails) => console.log("썸네일 변경:", thumbnails)}
     onDragEnter={(e) => console.log("드래그 진입")}
     onDragLeave={(e) => console.log("드래그 종료")}
-    onDragover={(e) => console.log("드래그 오버")}
+    onDragOver={(e) => console.log("드래그 오버")}
 />;
 ```
 
@@ -95,7 +95,7 @@ function App() {
 | `onThumbnailsChange` | `(thumbnails: Array<{ src: string, time: string }>) => void` | 썸네일이 추가되거나 삭제될 때 호출되는 함수입니다. |
 | `onDragEnter`        | `(event: DragEvent) => void`                                 | 파일이 드롭존에 진입할 때 호출되는 함수입니다.     |
 | `onDragLeave`        | `(event: DragEvent) => void`                                 | 파일이 드롭존에서 나갈 때 호출되는 함수입니다.     |
-| `onDragover`         | `(event: DragEvent) => void`                                 | 파일이 드롭존 위에 있을 때 호출되는 함수입니다.    |
+| `onDragOver`         | `(event: DragEvent) => void`                                 | 파일이 드롭존 위에 있을 때 호출되는 함수입니다.    |
 
 ### useModal 훅
 
