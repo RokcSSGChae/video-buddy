@@ -1,6 +1,8 @@
 packages:
     # all packages in direct subdirs of packages/
     - packages/**
+    # except playgrounds packages
+    - '!playgrounds'
 catalog:
     "@babel/preset-env": ^7.26.0
     "@eslint/js": ^9.13.0
