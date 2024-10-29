@@ -11,23 +11,24 @@
 패키지 별 빌드 산출물이 로컬 환경에 이미 있다면 건너뛰어도 됩니다.
 
 ```bash
-cd video-buddy
+# 워크스페이스 전체 종속성 설치
 pnpm install
-pnpm run build
+# 워크스페이스 내 모든 패키지의 build 스크립트 실행
+pnpm -r run build
 ```
 
 ### 플레이그라운드 종속성 설치
 
-`npm`을 사용해 모든 종속성을 설치합니다.
+`pnpm`이 아닌 `npm`을 사용해 모든 종속성을 설치합니다.
 
-플레이그라운드 환경은 `pnpm workspace` 설정과 분리하여 `pnpm` 설치가 불가능합니다.
+플레이그라운드 환경은 `pnpm workspace` 설정과 분리가 필요하여 `pnpm` 설치가 불가능합니다.
 
 ```bash
 cd video-buddy/playgrounds/react-ts
 npm install
 ```
 
-워크스페이스의 패키지는 Local File Path로 설치를 진행합니다.
+워크스페이스의 패키지는 로컬 환경 파일 경로 설치를 진행합니다.
 
 ```json
 ...
