@@ -6,9 +6,9 @@
 
 | name   | description                                                 | links                                                                                                            |
 | ------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| modal  | 동영상 첨부 및 썸네일 추출 기능 및 UI를 제공하는 라이브러리 | [code](https://github.com/RokcSSGChae/video-buddy/tree/c0b38b478a079210f7e0eda9c3fdf3b725d3ebcf/packages/modal)  |
-| player | 동영상 플레이어 인터페이스를 제공하는 패키지                | [code](https://github.com/RokcSSGChae/video-buddy/tree/c0b38b478a079210f7e0eda9c3fdf3b725d3ebcf/packages/player) |
-| shared | 워크스페이스 내 공통 모듈을 관리하는 패키지                 | [code](https://github.com/RokcSSGChae/video-buddy/tree/c0b38b478a079210f7e0eda9c3fdf3b725d3ebcf/packages/shared) |
+| modal  | 동영상 첨부 및 썸네일 추출 기능 및 UI를 제공하는 라이브러리 | [code](https://github.com/RokcSSGChae/video-buddy/tree/main/packages/modal)  |
+| player | 동영상 플레이어 인터페이스를 제공하는 패키지                | [code](https://github.com/RokcSSGChae/video-buddy/tree/main/packages/player) |
+| shared | 워크스페이스 내 공통 모듈을 관리하는 패키지                 | [code](https://github.com/RokcSSGChae/video-buddy/tree/main/packages/shared) |
 
 <br>
 
