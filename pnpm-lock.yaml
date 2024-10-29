@@ -6,9 +6,15 @@ settings:
 
 catalogs:
   default:
+    '@babel/preset-env':
+      specifier: ^7.26.0
+      version: 7.26.0
     '@eslint/js':
       specifier: ^9.13.0
       version: 9.13.0
+    '@rollup/plugin-babel':
+      specifier: ^6.0.4
+      version: 6.0.4
     '@stylistic/eslint-plugin':
       specifier: ^2.9.0
       version: 2.9.0
@@ -69,13 +75,13 @@ importers:
   .:
     devDependencies:
       '@babel/preset-env':
-        specifier: ^7.26.0
+        specifier: 'catalog:'
         version: 7.26.0(@babel/core@7.26.0)
       '@eslint/js':
         specifier: 'catalog:'
         version: 9.13.0
       '@rollup/plugin-babel':
-        specifier: ^6.0.4
+        specifier: 'catalog:'
         version: 6.0.4(@babel/core@7.26.0)(@types/babel__core@7.20.5)(rollup@4.24.0)
       '@stylistic/eslint-plugin':
         specifier: 'catalog:'
