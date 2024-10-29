@@ -98,7 +98,7 @@ function App() {
                     onConfirm={handleConfirm}
                     onCancel={handleCancel}
                     onDragEnter={handleDragEnter}
-                    onDragover={handleDragOver}
+                    onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onFileChange={handleFileChange}
                     onThumbnailsChange={handleThumbnailsChange}
