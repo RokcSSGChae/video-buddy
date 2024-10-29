@@ -8,6 +8,7 @@
 -   **썸네일 생성 및 삭제** : 동영상에서 특정 위치의 썸네일을 추가, 삭제할 수 있습니다.
 -   **커스텀 이벤트** : 동영상 파일 변경, 썸네일 변경, 드래그 이벤트 등 주요 이벤트를 지원합니다.
 -   **모달 상태 관리** : `useModal` 훅을 통해 모달 상태를 편리하게 제어할 수 있습니다.
+-   **모달 디폴트 스타일 (UI)**
 
 ### 포함하지 않는 기능 🙅‍♂️
 
@@ -31,12 +32,10 @@ npm install @video-buddy/modal
 
 모달 컴포넌트를 불러와 파일 업로드와 썸네일 기능을 설정합니다.
 
-#### Modal 컴포넌트 예제
-
 ```javascript
-import { BuddyModal } from "@video-buddy/modal";
+import { Modal } from "@video-buddy/modal";
 
-<BuddyModal
+<Modal
     isOpen={isOpen}
     onClose={closeModal}
     onConfirm={onConfirm}
@@ -53,10 +52,8 @@ import { BuddyModal } from "@video-buddy/modal";
 
 `useModal` 훅을 사용하여 모달의 열기/닫기 상태를 관리할 수 있습니다.
 
-#### useModal 훅 사용 예제
-
 ```javascript
-import useModal from "@video-buddy/modal/hooks/useModal";
+import { useModal } from "@video-buddy/modal";
 
 function App() {
     const { isOpen, openModal, closeModal, onConfirm, onCancel } = useModal();
@@ -77,6 +74,14 @@ function App() {
         </>
     );
 }
+```
+
+### 3. 디폴트 스타일 적용하기
+
+패키지 내부에 UI 기본 노출을 위한 디폴트 css 파일을 제공합니다.
+
+```javascript
+import "@video-buddy/modal/style.css";
 ```
 
 <br>
@@ -119,9 +124,9 @@ function App() {
 
 `onThumbnailsChange: (thumbnails: Array<{ src: string, time: string }>) => void`
 
-| Payload | Type     | 설명                                            |
-| ------- | -------- | ----------------------------------------------- |
-| `src`   | `string` | 썸네일 이미지의 **data URL**을 전달합니다.                 |
+| Payload | Type     | 설명                                                |
+| ------- | -------- | --------------------------------------------------- |
+| `src`   | `string` | 썸네일 이미지의 **data URL**을 전달합니다.          |
 | `time`  | `string` | 썸네일 이미지의 **재생 시간**을 전달합니다. (MM:SS) |
 
 ```javascript
